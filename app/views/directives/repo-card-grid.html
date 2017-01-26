@@ -1,0 +1,25 @@
+<div class="row card">
+  <div class="row card-ctn">
+    <div class="card-cpn" ng-repeat="repo in repoCardCtrl.ui.data">
+      <div class="col-md-3">
+        <div class="well">
+          <dl class="repo-info">
+            <dt>Link:</dt>
+            <dd><a href="{{repo['html_url']}}" target="_blank">{{repo['full_name']}}</a></dd>
+            <dt>Nombre del repositorio:</dt>
+            <dd>{{repo['name']}}</dd>
+            <dt>Descripcion del repositorio:</dt>
+            <dd>{{repo['description'] || '-'}}</dd>
+            <dt>Issues abiertos:</dt>
+            <dd>{{repo['open_issues']}}</dd>
+            <dt>Forks:</dt>
+            <dd>{{repo['forks']}}</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pagination-ctn" ng-show="repoCardCtrl.ui.totalData.length">
+    <ul uib-pagination previous-text="Anterior" next-text="Siguiente" first-text="Primero" last-text="Ultimo" total-items="repoCardCtrl.ui.totalData.length" ng-change="repoCardCtrl.setPage()" ng-model="repoCardCtrl.ui.page" max-size="repoCardCtrl.ui.pagination.maxSize" class="pagination-sm" boundary-links="true" items-per-page="4" ></ul>
+  </div>
+</div>

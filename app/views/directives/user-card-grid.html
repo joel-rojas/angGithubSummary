@@ -1,0 +1,28 @@
+<div class="row card">
+  <div class="row card-ctn">
+    <div class="card-row" ng-repeat="item in cardCtrl.ui.data">
+      <div class="card-cpn" ng-repeat="user in item">
+        <div class="col-md-3">
+          <div class="well">
+            <div class="avatar-ctn">
+              <img ng-src='{{user["avatar_url"] || "/images/default-avatar.png"}}' alt="" class="img-responsive">
+            </div>
+            <dl class="user-info">
+              <dt>Nombre de Usuario</dt>
+              <dd>{{user['login']}}</dd>
+              <dt>Github Url:</dt>
+              <dd><a href="{{user['html_url']}}" target="_blank">{{user['html_url']}}</a></dd>
+              <dt>Pagina repo:</dt>
+              <dd><a href="{{'#!/repos/' + user['login']}}" >Repositorio de {{user['login']}} </a></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row add-ctn">
+    <div ng-click="cardCtrl.getMoreUsers()" class="add-btn">
+      <img src="/images/add-user.png" class="img-responsive"/>
+    </div>
+  </div>
+</div>
